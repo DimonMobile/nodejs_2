@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <title>Example App</title>
+    <title>
+        Справочник
+    </title>
     <link rel="stylesheet" href="/public/css/common.css"/>
 </head>
 <body>
-
-    {{{body}}}
-
+    <div id="contacts-container">
+        <div id="contacts">
+            <ul>
+                {{#each contacts}}
+                    {{>contact}}
+                {{/each}}
+            </ul>
+        </div>
+        {{{body}}}
+    </div>
 </body>
 </html>

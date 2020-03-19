@@ -1,9 +1,10 @@
 <br />
-<input type="text" placeholder="Фамилия, имя, отчество  Телефон" />
+<form id="newForm" action="/add" method="POST">
+    <input type="text" name="newdata" placeholder="Фамилия, имя, отчество  Телефон" />
+</form>
 <br />
-<button>Добавить</button>
-<button onclick="location.href='/'">Отказаться</button>
-
+<button onclick="document.getElementById('newForm').submit();">Добавить</button>
+{{#discardBtn}}{{/discardBtn}}
 <script>
     let elements = document.getElementsByTagName('a');
     for (element of elements) {

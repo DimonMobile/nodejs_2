@@ -17,5 +17,16 @@ exports.updateContacts = function (req, res) {
 }
 
 exports.deleteContact = function (req, res) {
+    contactsModel.remove(parseInt(req.body.id));
+    res.redirect(301, '/');
+}
+
+exports.updateContact = function (req, res) {
+    contactsModel.update(req.body.id, req.body.newdata);
+    res.redirect(301, '/');
+};
+
+exports.addContact = function (req, res) {
+    contactsModel.add(req.body.newdata);
     res.redirect(301, '/');
 }

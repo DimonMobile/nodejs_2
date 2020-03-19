@@ -1,17 +1,21 @@
 <br />
-<input type="text" placeholder="Фамилия, имя, отчество  Телефон" value="{{activeContact}}"/>
-<input type="hidden" value="{{activeContactId}}"/>
+<form id="updateForm" action="/update" method="POST">
+    <input type="hidden" name="id" value="{{activeContactId}}"/>
+    <input type="text" name="newdata" placeholder="Фамилия, имя, отчество  Телефон" value="{{activeContact}}"/>
+</form>
+
+<form id="deleteForm" action="/delete" method="POST">
+    <input name="id" type="hidden" value="{{activeContactId}}"/>
+</form>
+
 <br />
-<button>Изменить</button>
-<button id="delBtn">Удалить</button>
-<button onclick="location.href='/'">Отказаться</button>
+<button onclick="document.getElementById('updateForm').submit()">Изменить</button>
+<button onclick="document.getElementById('deleteForm').submit()">Удалить</button>
+{{#discardBtn}}{{/discardBtn}}
 
 <script>
     let elements = document.getElementsByTagName('a');
     for (element of elements) {
         element.removeAttribute('href');
     }
-
-    let delBtn = document.getElementById('delBtn');
-    delBtn.onclick = ''; // TODO: dynamicly create form and submit it (POST at "/delete")
 </script>

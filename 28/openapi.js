@@ -31,7 +31,9 @@ let openapi = {
                 tags: ['CRUD'],
                 description: 'Add new element to dictionary',
                 parameters: [
-                    
+                    {
+                        name: 
+                    }
                 ]
             },
             put: {

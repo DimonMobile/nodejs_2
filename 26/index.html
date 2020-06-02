@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WASM test</title>
+</head>
+
+<body>
+    <h2 id="sum"></h2>
+    <h2 id="mul"></h2>
+    <h2 id="sub"></h2>
+    <script>
+        (async () => {
+            const fetchPromise = fetch('/result.wasm');
+            var { module, instance } = await WebAssembly.instantiateStreaming(fetchPromise);
+            sum.innerHTML = "SUM: " + instance.exports.sum(1, 2);
+            mul.innerText = "MUL: " + instance.exports.mul(1, 2);
+            sub.innerText = "SUB: " + instance.exports.sub(1, 2);
+        })();
+    </script>
+</body>
+
+</html>
